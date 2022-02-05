@@ -1,5 +1,6 @@
 ﻿using ExpenseTracker.Models;
 using ExpenseTracker.Repository.ItemsRepo;
+using ExpenseTracker.Views;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,12 @@ namespace ExpenseTracker.Controllers
             {
                 return await _itemRepo.GetItems();
             }
+
+        [HttpGet("itemWithCategory")]
+        public async Task<List<ItemViewModel>> GetItemsWithCategory()
+        {
+            return await _itemRepo.GetItemsWithCategory();
+        }
 
         //get item by id
         [HttpGet("{id}")]

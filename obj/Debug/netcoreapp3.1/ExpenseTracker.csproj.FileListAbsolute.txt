@@ -59,3 +59,4 @@ E:\ExpenseTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 E:\ExpenseTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\ExpenseTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\ExpenseTracker\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\ExpenseTracker\obj\Debug\netcoreapp3.1\ExpenseTracker.csproj.AssemblyReference.cache

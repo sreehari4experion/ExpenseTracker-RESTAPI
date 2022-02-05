@@ -67,7 +67,7 @@ namespace ExpenseTracker.Repository.ExpensesRepo
         {
             if (_context != null)
             {
-                //return await _context.Expenses.FindAsync(id);    //primary key
+               
 
                 var expense = await _context.Expenses.FindAsync(id);    //primary key
 
@@ -88,8 +88,9 @@ namespace ExpenseTracker.Repository.ExpensesRepo
                                   Date = e.Date,
                                   CategoryId = C.CategoryId,
                                   CategoryName = C.Category1,
-                                  ItemList = (from c in _context.Category join e in _context.Expenses on c.CategoryId equals e.CategoryId
-                                              join Id in _context.ItemsDescription on e.ItemsId equals Id.ItemsId 
+                                  ItemList = (from c in _context.Category
+                                              join e in _context.Expenses on c.CategoryId equals e.CategoryId
+                                              join Id in _context.ItemsDescription on e.ItemsId equals Id.ItemsId
                                               join it in _context.Item on Id.ItemId equals it.ItemId
                                               where e.UserId == id
                                               //where e.UserId == id
@@ -104,9 +105,11 @@ namespace ExpenseTracker.Repository.ExpensesRepo
 
                               }
                               ).FirstOrDefaultAsync();
-                              
+
             }
             return null;
+
+
         }
 
         //category whwere a user spend maximum

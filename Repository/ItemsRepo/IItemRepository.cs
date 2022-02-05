@@ -1,4 +1,5 @@
 ﻿using ExpenseTracker.Models;
+using ExpenseTracker.Views;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,7 @@ namespace ExpenseTracker.Repository.ItemsRepo
         Task UpdateItem(Item item);
 
         Task<int> DeleteItemByID(int? id);
+
+        Task<List<ItemViewModel>> GetItemsWithCategory();
     }
 }

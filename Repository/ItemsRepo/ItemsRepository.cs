@@ -1,4 +1,5 @@
 ﻿using ExpenseTracker.Models;
+using ExpenseTracker.Views;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,6 +26,29 @@ namespace ExpenseTracker.Repository.ItemsRepo
             {
                 return await _context.Item.ToListAsync();
                               
+            }
+            return null;
+        }
+
+        //get all Items List with category
+        public async Task<List<ItemViewModel>> GetItemsWithCategory()
+        {
+            if (_context != null)
+            {
+                return await (from e in _context.Expenses
+                              join c in _context.Category
+                              on e.CategoryId equals c.CategoryId
+                              join Id in _context.ItemsDescription on e.ItemsId equals Id.ItemsId
+                              join i in _context.Item on Id.ItemId equals i.ItemId
+                              select new ItemViewModel
+                              {
+                                  ItemId = i.ItemId,
+                                  ItemName = i.ItemName,
+                                  ItemPrice = i.ItemPrice,
+                                  Category = c.Category1
+                              }
+                              ).ToListAsync();
+
             }
             return null;
         }
